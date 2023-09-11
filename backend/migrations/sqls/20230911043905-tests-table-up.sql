@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS tests (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(250) NOT NULL,
+  group_id INT NOT NULL REFERENCES tests(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  degree INT NOT NULL,
+  image_url TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT timezone('UTC', now())
+);

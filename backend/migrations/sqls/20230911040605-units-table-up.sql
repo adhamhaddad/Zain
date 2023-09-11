@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS units (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  category_id INT NOT NULL REFERENCES categories(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  created_at TIMESTAMP DEFAULT timezone('UTC', now())
+);

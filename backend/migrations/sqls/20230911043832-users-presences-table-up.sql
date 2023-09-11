@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS users_presences (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+  degree FLOAT NOT NULL DEFAULT 0,
+  is_presence BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMP DEFAULT timezone('UTC', now())
+);
